@@ -28,3 +28,6 @@ Thumbs.db
 venv/
 ENV/
 env/
+
+.env.env
+model_server/.env
