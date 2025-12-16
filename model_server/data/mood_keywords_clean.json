@@ -1,0 +1,1706 @@
+[
+  {
+    "keyword": "따뜻함",
+    "freq": 1877
+  },
+  {
+    "keyword": "세련됨",
+    "freq": 1098
+  },
+  {
+    "keyword": "깔끔",
+    "freq": 905
+  },
+  {
+    "keyword": "현대적",
+    "freq": 840
+  },
+  {
+    "keyword": "자연스러움",
+    "freq": 696
+  },
+  {
+    "keyword": "캐주얼",
+    "freq": 554
+  },
+  {
+    "keyword": "고급스러움",
+    "freq": 523
+  },
+  {
+    "keyword": "단순함",
+    "freq": 490
+  },
+  {
+    "keyword": "정돈됨",
+    "freq": 415
+  },
+  {
+    "keyword": "부드러움",
+    "freq": 368
+  },
+  {
+    "keyword": "귀여움",
+    "freq": 333
+  },
+  {
+    "keyword": "편안함",
+    "freq": 305
+  },
+  {
+    "keyword": "우아함",
+    "freq": 304
+  },
+  {
+    "keyword": "심플",
+    "freq": 286
+  },
+  {
+    "keyword": "실용적",
+    "freq": 279
+  },
+  {
+    "keyword": "단순",
+    "freq": 270
+  },
+  {
+    "keyword": "차분",
+    "freq": 227
+  },
+  {
+    "keyword": "차분함",
+    "freq": 221
+  },
+  {
+    "keyword": "섬세함",
+    "freq": 199
+  },
+  {
+    "keyword": "소박함",
+    "freq": 194
+  },
+  {
+    "keyword": "포근함",
+    "freq": 187
+  },
+  {
+    "keyword": "감성",
+    "freq": 161
+  },
+  {
+    "keyword": "고전적",
+    "freq": 144
+  },
+  {
+    "keyword": "애정",
+    "freq": 144
+  },
+  {
+    "keyword": "로맨틱",
+    "freq": 138
+  },
+  {
+    "keyword": "밝음",
+    "freq": 120
+  },
+  {
+    "keyword": "심플함",
+    "freq": 119
+  },
+  {
+    "keyword": "크리스마스",
+    "freq": 117
+  },
+  {
+    "keyword": "기능적",
+    "freq": 112
+  },
+  {
+    "keyword": "미니멀",
+    "freq": 100
+  },
+  {
+    "keyword": "유쾌함",
+    "freq": 99
+  },
+  {
+    "keyword": "소프트",
+    "freq": 98
+  },
+  {
+    "keyword": "깔끔함",
+    "freq": 98
+  },
+  {
+    "keyword": "정제됨",
+    "freq": 95
+  },
+  {
+    "keyword": "아늑함",
+    "freq": 93
+  },
+  {
+    "keyword": "컬러풀",
+    "freq": 86
+  },
+  {
+    "keyword": "친근함",
+    "freq": 82
+  },
+  {
+    "keyword": "클래식",
+    "freq": 80
+  },
+  {
+    "keyword": "화려함",
+    "freq": 73
+  },
+  {
+    "keyword": "정교함",
+    "freq": 66
+  },
+  {
+    "keyword": "꽃무늬",
+    "freq": 61
+  },
+  {
+    "keyword": "순수함",
+    "freq": 60
+  },
+  {
+    "keyword": "정제된 감성",
+    "freq": 58
+  },
+  {
+    "keyword": "파스텔",
+    "freq": 54
+  },
+  {
+    "keyword": "감성적",
+    "freq": 54
+  },
+  {
+    "keyword": "세련",
+    "freq": 52
+  },
+  {
+    "keyword": "사랑스러움",
+    "freq": 50
+  },
+  {
+    "keyword": "모던",
+    "freq": 49
+  },
+  {
+    "keyword": "반짝임",
+    "freq": 49
+  },
+  {
+    "keyword": "기하학적",
+    "freq": 46
+  },
+  {
+    "keyword": "캐릭터",
+    "freq": 45
+  },
+  {
+    "keyword": "장난감",
+    "freq": 45
+  },
+  {
+    "keyword": "단정",
+    "freq": 44
+  },
+  {
+    "keyword": "기능성",
+    "freq": 44
+  },
+  {
+    "keyword": "고요함",
+    "freq": 43
+  },
+  {
+    "keyword": "색채감",
+    "freq": 42
+  },
+  {
+    "keyword": "꽃향기",
+    "freq": 42
+  },
+  {
+    "keyword": "생동감",
+    "freq": 41
+  },
+  {
+    "keyword": "고전",
+    "freq": 40
+  },
+  {
+    "keyword": "간결함",
+    "freq": 40
+  },
+  {
+    "keyword": "캐주얼함",
+    "freq": 40
+  },
+  {
+    "keyword": "예술적",
+    "freq": 40
+  },
+  {
+    "keyword": "실용",
+    "freq": 39
+  },
+  {
+    "keyword": "풍성함",
+    "freq": 38
+  },
+  {
+    "keyword": "순수",
+    "freq": 36
+  },
+  {
+    "keyword": "정제된",
+    "freq": 36
+  },
+  {
+    "keyword": "장식성",
+    "freq": 34
+  },
+  {
+    "keyword": "마법 같은",
+    "freq": 34
+  },
+  {
+    "keyword": "청량함",
+    "freq": 32
+  },
+  {
+    "keyword": "청량",
+    "freq": 31
+  },
+  {
+    "keyword": "우아",
+    "freq": 29
+  },
+  {
+    "keyword": "여유",
+    "freq": 27
+  },
+  {
+    "keyword": "자연",
+    "freq": 26
+  },
+  {
+    "keyword": "색다름",
+    "freq": 26
+  },
+  {
+    "keyword": "산업적",
+    "freq": 26
+  },
+  {
+    "keyword": "중립",
+    "freq": 25
+  },
+  {
+    "keyword": "전통적",
+    "freq": 25
+  },
+  {
+    "keyword": "앙증맞음",
+    "freq": 24
+  },
+  {
+    "keyword": "편안",
+    "freq": 24
+  },
+  {
+    "keyword": "달콤함",
+    "freq": 24
+  },
+  {
+    "keyword": "평화",
+    "freq": 22
+  },
+  {
+    "keyword": "섬세",
+    "freq": 21
+  },
+  {
+    "keyword": "꾸밈",
+    "freq": 20
+  },
+  {
+    "keyword": "애정 어린",
+    "freq": 19
+  },
+  {
+    "keyword": "실용성",
+    "freq": 19
+  },
+  {
+    "keyword": "우주",
+    "freq": 19
+  },
+  {
+    "keyword": "럭셔리",
+    "freq": 19
+  },
+  {
+    "keyword": "아름다움",
+    "freq": 18
+  },
+  {
+    "keyword": "색채",
+    "freq": 18
+  },
+  {
+    "keyword": "수제감",
+    "freq": 17
+  },
+  {
+    "keyword": "자유로움",
+    "freq": 17
+  },
+  {
+    "keyword": "꿈결",
+    "freq": 17
+  },
+  {
+    "keyword": "아트",
+    "freq": 16
+  },
+  {
+    "keyword": "꽃",
+    "freq": 16
+  },
+  {
+    "keyword": "기쁨",
+    "freq": 16
+  },
+  {
+    "keyword": "어린이",
+    "freq": 16
+  },
+  {
+    "keyword": "오래된 느낌",
+    "freq": 16
+  },
+  {
+    "keyword": "조명",
+    "freq": 16
+  },
+  {
+    "keyword": "홀로그램",
+    "freq": 16
+  },
+  {
+    "keyword": "오로라",
+    "freq": 16
+  },
+  {
+    "keyword": "중립톤",
+    "freq": 15
+  },
+  {
+    "keyword": "경쾌함",
+    "freq": 15
+  },
+  {
+    "keyword": "단정함",
+    "freq": 15
+  },
+  {
+    "keyword": "꿈같은",
+    "freq": 15
+  },
+  {
+    "keyword": "선물감",
+    "freq": 15
+  },
+  {
+    "keyword": "마법",
+    "freq": 15
+  },
+  {
+    "keyword": "다채로움",
+    "freq": 14
+  },
+  {
+    "keyword": "빈티지",
+    "freq": 14
+  },
+  {
+    "keyword": "수채화",
+    "freq": 14
+  },
+  {
+    "keyword": "핑크톤",
+    "freq": 14
+  },
+  {
+    "keyword": "모험",
+    "freq": 14
+  },
+  {
+    "keyword": "선물",
+    "freq": 14
+  },
+  {
+    "keyword": "핑크",
+    "freq": 14
+  },
+  {
+    "keyword": "달달함",
+    "freq": 13
+  },
+  {
+    "keyword": "꽃밭",
+    "freq": 13
+  },
+  {
+    "keyword": "평화로움",
+    "freq": 13
+  },
+  {
+    "keyword": "강렬",
+    "freq": 13
+  },
+  {
+    "keyword": "목재 느낌",
+    "freq": 13
+  },
+  {
+    "keyword": "금속빛",
+    "freq": 13
+  },
+  {
+    "keyword": "목재 감성",
+    "freq": 13
+  },
+  {
+    "keyword": "향기",
+    "freq": 13
+  },
+  {
+    "keyword": "채색",
+    "freq": 12
+  },
+  {
+    "keyword": "공간감",
+    "freq": 12
+  },
+  {
+    "keyword": "화사함",
+    "freq": 12
+  },
+  {
+    "keyword": "도시적",
+    "freq": 12
+  },
+  {
+    "keyword": "빛나는",
+    "freq": 12
+  },
+  {
+    "keyword": "정제된 느낌",
+    "freq": 12
+  },
+  {
+    "keyword": "안락함",
+    "freq": 11
+  },
+  {
+    "keyword": "어린이풍",
+    "freq": 11
+  },
+  {
+    "keyword": "독특함",
+    "freq": 11
+  },
+  {
+    "keyword": "러블리",
+    "freq": 11
+  },
+  {
+    "keyword": "안정감",
+    "freq": 11
+  },
+  {
+    "keyword": "겨울감",
+    "freq": 10
+  },
+  {
+    "keyword": "정교",
+    "freq": 10
+  },
+  {
+    "keyword": "휴식",
+    "freq": 10
+  },
+  {
+    "keyword": "색감",
+    "freq": 10
+  },
+  {
+    "keyword": "재미있음",
+    "freq": 10
+  },
+  {
+    "keyword": "정원",
+    "freq": 10
+  },
+  {
+    "keyword": "투명",
+    "freq": 10
+  },
+  {
+    "keyword": "나무향",
+    "freq": 10
+  },
+  {
+    "keyword": "레트로",
+    "freq": 10
+  },
+  {
+    "keyword": "나무",
+    "freq": 10
+  },
+  {
+    "keyword": "장난감 같은",
+    "freq": 9
+  },
+  {
+    "keyword": "집중력",
+    "freq": 9
+  },
+  {
+    "keyword": "캠핑",
+    "freq": 9
+  },
+  {
+    "keyword": "스타일리시",
+    "freq": 9
+  },
+  {
+    "keyword": "목재감",
+    "freq": 9
+  },
+  {
+    "keyword": "겨울",
+    "freq": 8
+  },
+  {
+    "keyword": "텍스처",
+    "freq": 8
+  },
+  {
+    "keyword": "전통",
+    "freq": 8
+  },
+  {
+    "keyword": "쿨",
+    "freq": 8
+  },
+  {
+    "keyword": "달빛",
+    "freq": 8
+  },
+  {
+    "keyword": "손뜨개",
+    "freq": 8
+  },
+  {
+    "keyword": "축제감",
+    "freq": 8
+  },
+  {
+    "keyword": "앤티크",
+    "freq": 8
+  },
+  {
+    "keyword": "무드등",
+    "freq": 8
+  },
+  {
+    "keyword": "달",
+    "freq": 8
+  },
+  {
+    "keyword": "선명",
+    "freq": 7
+  },
+  {
+    "keyword": "화려",
+    "freq": 7
+  },
+  {
+    "keyword": "풍경",
+    "freq": 7
+  },
+  {
+    "keyword": "햇살",
+    "freq": 7
+  },
+  {
+    "keyword": "해변",
+    "freq": 7
+  },
+  {
+    "keyword": "온화함",
+    "freq": 7
+  },
+  {
+    "keyword": "고요",
+    "freq": 7
+  },
+  {
+    "keyword": "산뜻함",
+    "freq": 7
+  },
+  {
+    "keyword": "세련된",
+    "freq": 7
+  },
+  {
+    "keyword": "프렌치",
+    "freq": 7
+  },
+  {
+    "keyword": "아날로그",
+    "freq": 7
+  },
+  {
+    "keyword": "꿈같음",
+    "freq": 7
+  },
+  {
+    "keyword": "금속",
+    "freq": 7
+  },
+  {
+    "keyword": "인테리어",
+    "freq": 7
+  },
+  {
+    "keyword": "강렬함",
+    "freq": 6
+  },
+  {
+    "keyword": "황금빛",
+    "freq": 6
+  },
+  {
+    "keyword": "추상",
+    "freq": 6
+  },
+  {
+    "keyword": "정적인",
+    "freq": 6
+  },
+  {
+    "keyword": "활기차",
+    "freq": 6
+  },
+  {
+    "keyword": "유쾌",
+    "freq": 6
+  },
+  {
+    "keyword": "그래픽",
+    "freq": 6
+  },
+  {
+    "keyword": "별빛",
+    "freq": 6
+  },
+  {
+    "keyword": "소중함",
+    "freq": 6
+  },
+  {
+    "keyword": "정제된 아름다움",
+    "freq": 6
+  },
+  {
+    "keyword": "원목",
+    "freq": 6
+  },
+  {
+    "keyword": "풍부함",
+    "freq": 6
+  },
+  {
+    "keyword": "힐링",
+    "freq": 6
+  },
+  {
+    "keyword": "휴양지",
+    "freq": 6
+  },
+  {
+    "keyword": "간결",
+    "freq": 6
+  },
+  {
+    "keyword": "바다",
+    "freq": 6
+  },
+  {
+    "keyword": "환상",
+    "freq": 6
+  },
+  {
+    "keyword": "우주감성",
+    "freq": 6
+  },
+  {
+    "keyword": "단단함",
+    "freq": 6
+  },
+  {
+    "keyword": "전통감",
+    "freq": 6
+  },
+  {
+    "keyword": "장난감 느낌",
+    "freq": 5
+  },
+  {
+    "keyword": "영국풍",
+    "freq": 5
+  },
+  {
+    "keyword": "숲",
+    "freq": 5
+  },
+  {
+    "keyword": "깨끗함",
+    "freq": 5
+  },
+  {
+    "keyword": "여유감",
+    "freq": 5
+  },
+  {
+    "keyword": "트렌디",
+    "freq": 5
+  },
+  {
+    "keyword": "여름",
+    "freq": 5
+  },
+  {
+    "keyword": "색감강조",
+    "freq": 5
+  },
+  {
+    "keyword": "눈꽃",
+    "freq": 5
+  },
+  {
+    "keyword": "열대",
+    "freq": 5
+  },
+  {
+    "keyword": "추상적",
+    "freq": 5
+  },
+  {
+    "keyword": "손글씨",
+    "freq": 5
+  },
+  {
+    "keyword": "야경",
+    "freq": 5
+  },
+  {
+    "keyword": "여행",
+    "freq": 5
+  },
+  {
+    "keyword": "예술",
+    "freq": 5
+  },
+  {
+    "keyword": "꽃빛",
+    "freq": 5
+  },
+  {
+    "keyword": "투명함",
+    "freq": 5
+  },
+  {
+    "keyword": "캠핑감",
+    "freq": 5
+  },
+  {
+    "keyword": "꽃다발",
+    "freq": 5
+  },
+  {
+    "keyword": "초록",
+    "freq": 5
+  },
+  {
+    "keyword": "나무 느낌",
+    "freq": 5
+  },
+  {
+    "keyword": "골드",
+    "freq": 5
+  },
+  {
+    "keyword": "사랑",
+    "freq": 5
+  },
+  {
+    "keyword": "우주적",
+    "freq": 5
+  },
+  {
+    "keyword": "은은함",
+    "freq": 5
+  },
+  {
+    "keyword": "목재",
+    "freq": 5
+  },
+  {
+    "keyword": "행운",
+    "freq": 5
+  },
+  {
+    "keyword": "달콤",
+    "freq": 5
+  },
+  {
+    "keyword": "크리스탈",
+    "freq": 5
+  },
+  {
+    "keyword": "마법같은",
+    "freq": 5
+  },
+  {
+    "keyword": "경쾌",
+    "freq": 5
+  },
+  {
+    "keyword": "민트",
+    "freq": 4
+  },
+  {
+    "keyword": "소프트함",
+    "freq": 4
+  },
+  {
+    "keyword": "깊이",
+    "freq": 4
+  },
+  {
+    "keyword": "아기자기",
+    "freq": 4
+  },
+  {
+    "keyword": "평화감",
+    "freq": 4
+  },
+  {
+    "keyword": "플라워",
+    "freq": 4
+  },
+  {
+    "keyword": "넓음",
+    "freq": 4
+  },
+  {
+    "keyword": "대비",
+    "freq": 4
+  },
+  {
+    "keyword": "정감",
+    "freq": 4
+  },
+  {
+    "keyword": "색채 풍부",
+    "freq": 4
+  },
+  {
+    "keyword": "판타지",
+    "freq": 4
+  },
+  {
+    "keyword": "유머",
+    "freq": 4
+  },
+  {
+    "keyword": "토끼",
+    "freq": 4
+  },
+  {
+    "keyword": "정중함",
+    "freq": 4
+  },
+  {
+    "keyword": "산타",
+    "freq": 4
+  },
+  {
+    "keyword": "손길",
+    "freq": 4
+  },
+  {
+    "keyword": "일상감",
+    "freq": 4
+  },
+  {
+    "keyword": "열정적",
+    "freq": 4
+  },
+  {
+    "keyword": "중립 컬러",
+    "freq": 4
+  },
+  {
+    "keyword": "유니크",
+    "freq": 4
+  },
+  {
+    "keyword": "녹색",
+    "freq": 4
+  },
+  {
+    "keyword": "페미닌",
+    "freq": 4
+  },
+  {
+    "keyword": "장식감",
+    "freq": 4
+  },
+  {
+    "keyword": "기술감",
+    "freq": 4
+  },
+  {
+    "keyword": "정화",
+    "freq": 4
+  },
+  {
+    "keyword": "고급",
+    "freq": 4
+  },
+  {
+    "keyword": "원목 느낌",
+    "freq": 4
+  },
+  {
+    "keyword": "자유",
+    "freq": 4
+  },
+  {
+    "keyword": "선명함",
+    "freq": 4
+  },
+  {
+    "keyword": "에너지",
+    "freq": 4
+  },
+  {
+    "keyword": "향수",
+    "freq": 4
+  },
+  {
+    "keyword": "나무 질감",
+    "freq": 4
+  },
+  {
+    "keyword": "페스티벌",
+    "freq": 4
+  },
+  {
+    "keyword": "나무 톤",
+    "freq": 4
+  },
+  {
+    "keyword": "유연함",
+    "freq": 4
+  },
+  {
+    "keyword": "별",
+    "freq": 4
+  },
+  {
+    "keyword": "생일",
+    "freq": 4
+  },
+  {
+    "keyword": "크롬",
+    "freq": 4
+  },
+  {
+    "keyword": "따뜻",
+    "freq": 4
+  },
+  {
+    "keyword": "강철",
+    "freq": 4
+  },
+  {
+    "keyword": "자유분방",
+    "freq": 3
+  },
+  {
+    "keyword": "디자인",
+    "freq": 3
+  },
+  {
+    "keyword": "색채폭발",
+    "freq": 3
+  },
+  {
+    "keyword": "정갈함",
+    "freq": 3
+  },
+  {
+    "keyword": "유럽풍",
+    "freq": 3
+  },
+  {
+    "keyword": "채색감",
+    "freq": 3
+  },
+  {
+    "keyword": "정제",
+    "freq": 3
+  },
+  {
+    "keyword": "선명한 컬러",
+    "freq": 3
+  },
+  {
+    "keyword": "차분한",
+    "freq": 3
+  },
+  {
+    "keyword": "정적인 아름다움",
+    "freq": 3
+  },
+  {
+    "keyword": "장식적",
+    "freq": 3
+  },
+  {
+    "keyword": "왕관",
+    "freq": 3
+  },
+  {
+    "keyword": "수제 느낌",
+    "freq": 3
+  },
+  {
+    "keyword": "가족감",
+    "freq": 3
+  },
+  {
+    "keyword": "질감",
+    "freq": 3
+  },
+  {
+    "keyword": "캘리그라피",
+    "freq": 3
+  },
+  {
+    "keyword": "섬세한 감성",
+    "freq": 3
+  },
+  {
+    "keyword": "디자인 중심",
+    "freq": 3
+  },
+  {
+    "keyword": "목재 톤",
+    "freq": 3
+  },
+  {
+    "keyword": "블루",
+    "freq": 3
+  },
+  {
+    "keyword": "해변风情",
+    "freq": 3
+  },
+  {
+    "keyword": "섬세한 디자인",
+    "freq": 3
+  },
+  {
+    "keyword": "레이스",
+    "freq": 3
+  },
+  {
+    "keyword": "전통미",
+    "freq": 3
+  },
+  {
+    "keyword": "어두움",
+    "freq": 3
+  },
+  {
+    "keyword": "기념일",
+    "freq": 3
+  },
+  {
+    "keyword": "섬세한",
+    "freq": 3
+  },
+  {
+    "keyword": "실버",
+    "freq": 3
+  },
+  {
+    "keyword": "힙한",
+    "freq": 3
+  },
+  {
+    "keyword": "개인화",
+    "freq": 3
+  },
+  {
+    "keyword": "응원",
+    "freq": 3
+  },
+  {
+    "keyword": "캔디",
+    "freq": 3
+  },
+  {
+    "keyword": "희망",
+    "freq": 3
+  },
+  {
+    "keyword": "축하",
+    "freq": 3
+  },
+  {
+    "keyword": "색다른",
+    "freq": 3
+  },
+  {
+    "keyword": "은하수",
+    "freq": 3
+  },
+  {
+    "keyword": "정제된 우아함",
+    "freq": 3
+  },
+  {
+    "keyword": "무지개",
+    "freq": 3
+  },
+  {
+    "keyword": "페인트",
+    "freq": 3
+  },
+  {
+    "keyword": "라이트",
+    "freq": 3
+  },
+  {
+    "keyword": "1950년대 스타일",
+    "freq": 3
+  },
+  {
+    "keyword": "나무의 질감",
+    "freq": 3
+  },
+  {
+    "keyword": "직선적",
+    "freq": 3
+  },
+  {
+    "keyword": "목재의 질감",
+    "freq": 3
+  },
+  {
+    "keyword": "수공예",
+    "freq": 2
+  },
+  {
+    "keyword": "투명감",
+    "freq": 2
+  },
+  {
+    "keyword": "촉감",
+    "freq": 2
+  },
+  {
+    "keyword": "여성스러움",
+    "freq": 2
+  },
+  {
+    "keyword": "카페인",
+    "freq": 2
+  },
+  {
+    "keyword": "오렌지톤",
+    "freq": 2
+  },
+  {
+    "keyword": "기하 패턴",
+    "freq": 2
+  },
+  {
+    "keyword": "꽃형",
+    "freq": 2
+  },
+  {
+    "keyword": "중성색",
+    "freq": 2
+  },
+  {
+    "keyword": "폭신폭신",
+    "freq": 2
+  },
+  {
+    "keyword": "숲의 정취",
+    "freq": 2
+  },
+  {
+    "keyword": "홈스타일",
+    "freq": 2
+  },
+  {
+    "keyword": "포인트",
+    "freq": 2
+  },
+  {
+    "keyword": "명확함",
+    "freq": 2
+  },
+  {
+    "keyword": "플로럴",
+    "freq": 2
+  },
+  {
+    "keyword": "플라스틱",
+    "freq": 2
+  },
+  {
+    "keyword": "집중감",
+    "freq": 2
+  },
+  {
+    "keyword": "깊이감",
+    "freq": 2
+  },
+  {
+    "keyword": "유년기",
+    "freq": 2
+  },
+  {
+    "keyword": "해양감",
+    "freq": 2
+  },
+  {
+    "keyword": "밤하늘",
+    "freq": 2
+  },
+  {
+    "keyword": "자연미",
+    "freq": 2
+  },
+  {
+    "keyword": "플라스틱 느낌",
+    "freq": 2
+  },
+  {
+    "keyword": "일러스트",
+    "freq": 2
+  },
+  {
+    "keyword": "푸르름",
+    "freq": 2
+  },
+  {
+    "keyword": "역사감",
+    "freq": 2
+  },
+  {
+    "keyword": "코믹",
+    "freq": 2
+  },
+  {
+    "keyword": "정적",
+    "freq": 2
+  },
+  {
+    "keyword": "민족风情",
+    "freq": 2
+  },
+  {
+    "keyword": "유아풍",
+    "freq": 2
+  },
+  {
+    "keyword": "반사",
+    "freq": 2
+  },
+  {
+    "keyword": "겨울마을",
+    "freq": 2
+  },
+  {
+    "keyword": "어린童",
+    "freq": 2
+  },
+  {
+    "keyword": "정돈",
+    "freq": 2
+  },
+  {
+    "keyword": "어두운 톤",
+    "freq": 2
+  },
+  {
+    "keyword": "정제된 단순함",
+    "freq": 2
+  },
+  {
+    "keyword": "유기적",
+    "freq": 2
+  },
+  {
+    "keyword": "수수함",
+    "freq": 2
+  },
+  {
+    "keyword": "정제된 미",
+    "freq": 2
+  },
+  {
+    "keyword": "붉은색",
+    "freq": 2
+  },
+  {
+    "keyword": "독특한",
+    "freq": 2
+  },
+  {
+    "keyword": "러스틱",
+    "freq": 2
+  },
+  {
+    "keyword": "토마토",
+    "freq": 2
+  },
+  {
+    "keyword": "캠핑风",
+    "freq": 2
+  },
+  {
+    "keyword": "스포티",
+    "freq": 2
+  },
+  {
+    "keyword": "린넨",
+    "freq": 2
+  },
+  {
+    "keyword": "설탕빛",
+    "freq": 2
+  },
+  {
+    "keyword": "아트 감성",
+    "freq": 2
+  },
+  {
+    "keyword": "햇살감",
+    "freq": 2
+  },
+  {
+    "keyword": "도시감",
+    "freq": 2
+  },
+  {
+    "keyword": "숲속",
+    "freq": 2
+  },
+  {
+    "keyword": "고전미",
+    "freq": 2
+  },
+  {
+    "keyword": "선명한색",
+    "freq": 2
+  },
+  {
+    "keyword": "자연광",
+    "freq": 2
+  },
+  {
+    "keyword": "생일 기쁨",
+    "freq": 2
+  },
+  {
+    "keyword": "선박",
+    "freq": 2
+  },
+  {
+    "keyword": "팝아트",
+    "freq": 2
+  },
+  {
+    "keyword": "일몰",
+    "freq": 2
+  },
+  {
+    "keyword": "독창성",
+    "freq": 2
+  },
+  {
+    "keyword": "해양",
+    "freq": 2
+  },
+  {
+    "keyword": "선명한 색상",
+    "freq": 2
+  },
+  {
+    "keyword": "패턴",
+    "freq": 2
+  },
+  {
+    "keyword": "실내조명",
+    "freq": 2
+  },
+  {
+    "keyword": "스칸디나비아",
+    "freq": 2
+  },
+  {
+    "keyword": "어린이 친화적",
+    "freq": 2
+  },
+  {
+    "keyword": "체크무늬",
+    "freq": 2
+  },
+  {
+    "keyword": "마카롱",
+    "freq": 2
+  },
+  {
+    "keyword": "슬림",
+    "freq": 2
+  },
+  {
+    "keyword": "우드톤",
+    "freq": 2
+  },
+  {
+    "keyword": "어두운톤",
+    "freq": 2
+  },
+  {
+    "keyword": "아로마",
+    "freq": 2
+  },
+  {
+    "keyword": "골드톤",
+    "freq": 2
+  },
+  {
+    "keyword": "꽃길",
+    "freq": 2
+  },
+  {
+    "keyword": "산업",
+    "freq": 2
+  },
+  {
+    "keyword": "불꽃",
+    "freq": 2
+  },
+  {
+    "keyword": "애틋함",
+    "freq": 2
+  },
+  {
+    "keyword": "광채",
+    "freq": 2
+  },
+  {
+    "keyword": "손수공예",
+    "freq": 2
+  },
+  {
+    "keyword": "음악",
+    "freq": 2
+  },
+  {
+    "keyword": "우드",
+    "freq": 2
+  },
+  {
+    "keyword": "청순함",
+    "freq": 2
+  },
+  {
+    "keyword": "야생적",
+    "freq": 2
+  },
+  {
+    "keyword": "어두운 목재",
+    "freq": 2
+  },
+  {
+    "keyword": "다채로운",
+    "freq": 2
+  },
+  {
+    "keyword": "카라오케",
+    "freq": 2
+  },
+  {
+    "keyword": "소근거",
+    "freq": 2
+  },
+  {
+    "keyword": "정취",
+    "freq": 2
+  },
+  {
+    "keyword": "발레리나",
+    "freq": 2
+  },
+  {
+    "keyword": "오르골",
+    "freq": 2
+  },
+  {
+    "keyword": "퍼플",
+    "freq": 2
+  },
+  {
+    "keyword": "하트",
+    "freq": 2
+  },
+  {
+    "keyword": "프리즘",
+    "freq": 2
+  },
+  {
+    "keyword": "유니콘",
+    "freq": 2
+  },
+  {
+    "keyword": "장난감 같은 느낌",
+    "freq": 2
+  },
+  {
+    "keyword": "영롱함",
+    "freq": 2
+  },
+  {
+    "keyword": "실내감성",
+    "freq": 2
+  },
+  {
+    "keyword": "힙",
+    "freq": 2
+  },
+  {
+    "keyword": "모닥불",
+    "freq": 2
+  },
+  {
+    "keyword": "벽난로",
+    "freq": 2
+  },
+  {
+    "keyword": "소품",
+    "freq": 2
+  },
+  {
+    "keyword": "장식",
+    "freq": 2
+  },
+  {
+    "keyword": "우주감",
+    "freq": 2
+  },
+  {
+    "keyword": "포터블",
+    "freq": 2
+  },
+  {
+    "keyword": "프린세스",
+    "freq": 2
+  },
+  {
+    "keyword": "졸업 기쁨",
+    "freq": 2
+  },
+  {
+    "keyword": "초현실적",
+    "freq": 2
+  },
+  {
+    "keyword": "축하감",
+    "freq": 2
+  },
+  {
+    "keyword": "마법적",
+    "freq": 2
+  },
+  {
+    "keyword": "집중된 조명",
+    "freq": 2
+  },
+  {
+    "keyword": "접이식",
+    "freq": 2
+  },
+  {
+    "keyword": "로망스틱",
+    "freq": 2
+  },
+  {
+    "keyword": "금속감",
+    "freq": 2
+  },
+  {
+    "keyword": "캠핑 감성",
+    "freq": 2
+  },
+  {
+    "keyword": "선명한 빨강",
+    "freq": 2
+  },
+  {
+    "keyword": "쾌적함",
+    "freq": 2
+  },
+  {
+    "keyword": "무게감",
+    "freq": 2
+  },
+  {
+    "keyword": "권위감",
+    "freq": 2
+  },
+  {
+    "keyword": "푹신함",
+    "freq": 2
+  },
+  {
+    "keyword": "쿠션감",
+    "freq": 2
+  },
+  {
+    "keyword": "목재의 정취",
+    "freq": 2
+  }
+]

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>회원가입 - MOOD ON</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50 overflow-y-scroll">
+    <!-- Header injected by common.js -->
+    {% csrf_token %}
+    <script>renderHeader('signup');</script>
+
+    <main class="min-h-screen pt-24 pb-10 flex flex-col items-center justify-center">
+        <div class="max-w-md mx-auto px-6 w-full">
+            <!-- Progress -->
+            <div class="flex items-center justify-center mb-6" id="progress-container">
+                <!-- Injected by JS -->
+            </div>
+
+            <!-- Step 1: Terms -->
+            <div id="step-1" class="bg-white rounded-3xl shadow-xl p-6">
+                <h1
+                    class="text-2xl mb-1 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    약관 동의
+                </h1>
+                <p class="text-gray-500 text-center mb-5 text-sm">
+                    서비스 이용을 위해 약관에 동의해주세요
+                </p>
+
+                <div class="space-y-3 mb-5">
+                    <label
+                        class="flex items-start gap-2.5 p-3 border-2 border-blue-100 rounded-2xl hover:border-blue-300 cursor-pointer transition-all">
+                        <input type="checkbox" id="terms-check" class="mt-1">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <p class="text-sm">서비스 이용약관 (필수)</p>
+                                <button type="button" id="btn-view-terms"
+                                    class="text-xs text-blue-600 hover:text-blue-700 underline">
+                                    내용보기
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500">MOOD ON 서비스 이용을 위한 약관입니다.</p>
+                        </div>
+                    </label>
+
+                    <label
+                        class="flex items-start gap-2.5 p-3 border-2 border-blue-100 rounded-2xl hover:border-blue-300 cursor-pointer transition-all">
+                        <input type="checkbox" id="privacy-check" class="mt-1">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-0.5">
+                                <p class="text-sm">개인정보 처리방침 (필수)</p>
+                                <button type="button" id="btn-view-privacy"
+                                    class="text-xs text-blue-600 hover:text-blue-700 underline">
+                                    내용보기
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500">개인정보 수집 및 이용에 대한 안내입니다.</p>
+                        </div>
+                    </label>
+                </div>
+
+                <button id="btn-step-1-next" disabled
+                    class="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                    다음
+                </button>
+            </div>
+
+            <!-- Step 2: Email Verification -->
+            <div id="step-2" class="hidden bg-white rounded-3xl shadow-xl p-6">
+                <div class="flex items-center justify-center mb-4">
+                    <div
+                        class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center">
+                        <i data-lucide="mail" class="text-white w-6 h-6"></i>
+                    </div>
+                </div>
+
+                <h1
+                    class="text-2xl mb-1 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    이메일 인증
+                </h1>
+                <p class="text-gray-500 text-center mb-5 text-sm">
+                    이메일로 인증번호를 받아주세요
+                </p>
+
+                <div class="space-y-3 mb-4">
+                    <div>
+                        <label class="block mb-1.5 text-gray-700 text-sm">이메일</label>
+                        <div class="flex gap-2">
+                            <input type="email" id="email-input" placeholder="example@email.com"
+                                class="flex-1 px-3.5 py-2.5 border-2 border-blue-100 rounded-2xl focus:outline-none focus:border-blue-400 text-sm">
+                            <button id="btn-send-code"
+                                class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all whitespace-nowrap disabled:opacity-50 text-sm">
+                                발송
+                            </button>
+                        </div>
+                        <p id="send-count-msg" class="hidden text-xs text-gray-500 mt-1.5"></p>
+                    </div>
+
+                    <div id="verification-section" class="hidden">
+                        <label class="block mb-1.5 text-gray-700 text-sm">인증번호</label>
+                        <input type="text" id="verification-code-input" placeholder="인증번호 8자리" maxlength="8"
+                            class="w-full px-3.5 py-2.5 border-2 border-blue-100 rounded-2xl focus:outline-none focus:border-blue-400 text-sm">
+                        <div id="timer-container" class="flex items-center gap-2 mt-1.5 text-xs text-blue-600">
+                            <i data-lucide="clock" class="w-[14px] h-[14px]"></i>
+                            <span id="timer-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step-2-error"
+                    class="hidden flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-2xl mb-4">
+                    <i data-lucide="alert-circle" class="text-red-500 flex-shrink-0 w-[18px] h-[18px]"></i>
+                    <p id="step-2-error-msg" class="text-xs text-red-700 leading-relaxed"></p>
+                </div>
+
+                <div class="flex gap-2.5">
+                    <button id="btn-step-2-prev"
+                        class="flex-1 py-3 border-2 border-blue-200 rounded-2xl hover:bg-blue-50 transition-all text-sm">
+                        이전
+                    </button>
+                    <button id="btn-step-2-next" disabled
+                        class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm">
+                        인증하기
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Password Setup -->
+            <div id="step-3" class="hidden bg-white rounded-3xl shadow-xl p-6">
+                <div class="flex items-center justify-center mb-4">
+                    <div
+                        class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center">
+                        <i data-lucide="lock" class="text-white w-6 h-6"></i>
+                    </div>
+                </div>
+
+                <h1
+                    class="text-2xl mb-1 text-center bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    비밀번호 설정
+                </h1>
+                <p class="text-gray-500 text-center mb-5 text-sm">
+                    안전한 비밀번호를 설정해주세요
+                </p>
+
+                <div class="space-y-3 mb-4">
+                    <div>
+                        <label class="block mb-1.5 text-gray-700 text-sm">비밀번호</label>
+                        <div class="relative">
+                            <input type="password" id="password-input" placeholder="영문, 숫자, 특수문자 2종류 이상 혼용 (6~16자)"
+                                class="w-full px-3.5 pr-11 py-2.5 border-2 border-blue-100 rounded-2xl focus:outline-none focus:border-blue-400 text-sm">
+                            <button type="button" id="toggle-password"
+                                class="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
+                                <i data-lucide="eye" class="w-[18px] h-[18px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block mb-1.5 text-gray-700 text-sm">비밀번호 확인</label>
+                        <div class="relative">
+                            <input type="password" id="confirm-password-input" placeholder="비밀번호를 다시 입력해주세요"
+                                class="w-full px-3.5 pr-11 py-2.5 border-2 border-blue-100 rounded-2xl focus:outline-none focus:border-blue-400 text-sm">
+                            <button type="button" id="toggle-confirm-password"
+                                class="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
+                                <i data-lucide="eye" class="w-[18px] h-[18px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-2xl p-3 mb-4">
+                    <p class="text-xs text-gray-700 mb-1.5">비밀번호 조건:</p>
+                    <ul class="text-xs text-gray-600 space-y-0.5">
+                        <li>• 6~16자</li>
+                        <li>• 영문, 숫자, 특수문자(!?~@#$%&^) 중 2종류 이상</li>
+                        <li>• 연속되거나 동일한 문자/숫자 불가</li>
+                    </ul>
+                </div>
+
+                <div id="step-3-error"
+                    class="hidden flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-2xl mb-4">
+                    <i data-lucide="alert-circle" class="text-red-500 flex-shrink-0 w-[18px] h-[18px]"></i>
+                    <p id="step-3-error-msg" class="text-xs text-red-700 leading-relaxed"></p>
+                </div>
+
+                <div class="flex gap-2.5">
+                    <button id="btn-step-3-prev"
+                        class="flex-1 py-3 border-2 border-blue-200 rounded-2xl hover:bg-blue-50 transition-all text-sm">
+                        이전
+                    </button>
+                    <button id="btn-complete-signup" disabled
+                        class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm">
+                        회원가입 완료
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Popups -->
+    <!-- Terms Popup -->
+    <div id="popup-terms"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-6 max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl">
+            <div class="flex items-center justify-center mb-4">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <i data-lucide="check" class="text-white w-8 h-8"></i>
+                </div>
+            </div>
+            <h2
+                class="text-xl text-center mb-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                서비스 이용약관</h2>
+            <p class="text-center text-gray-500 text-sm mb-4">약관을 확인하시려면 아래 내용을 읽어주세요.</p>
+            <div class="flex-1 overflow-y-auto space-y-4 text-sm text-gray-700 mb-6 p-2">
+                <section>
+                    <h3 class="mb-2 text-blue-600">제1조 (목적)</h3>
+                    <p>
+                        이 약관은 MOOD ON(이하 "회사")이 제공하는 인테리어 상품 추천 서비스 이용과
+                        관련하여 회사와 이용자의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을
+                        목적으로 합니다.
+                    </p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제2조 (정의)</h3>
+                    <p>
+                        1. "서비스"라 함은 회사가 제공하는 AI 기반 인테리어 상품 추천, 챗봇 상담, 스타일
+                        분석 등 모든 서비스를 의미합니다.
+                    </p>
+                    <p>2. "이용자"라 함은 본 약관에 따라 회사가 제공하는 서비스를 받는 회원을 말합니다.</p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제3조 (서비스의 제공)</h3>
+                    <p>1. 회사는 이용자에게 AI 챗봇을 통한 인테리어 상품 추천 서비스를 제공합니다.</p>
+                    <p>
+                        2. 서비스는 연중무휴 1일 24시간 제공함을 원칙으로 합니다. 다만, 시스템 정기점검 등의
+                        사유로 서비스가 일시 중단될 수 있습니다.
+                    </p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제4조 (이용자의 의무)</h3>
+                    <p>1. 이용자는 서비스 이용 시 다음 각 호의 행위를 하여서는 안 됩니다:</p>
+                    <ul class="list-disc ml-6 mt-2 space-y-1">
+                        <li>타인의 개인정보를 도용하는 행위</li>
+                        <li>불법적이거나 부적절한 내용을 게시하는 행위</li>
+                        <li>서비스의 안정적 운영을 방해하는 행위</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제5조 (AI 추천의 한계)</h3>
+                    <p>1. AI 추천은 참고용이며, 최종 구매 결정은 이용자의 책임입니다.</p>
+                    <p>2. 상품의 재고, 가격, 배송 정보는 실시간과 다를 수 있습니다.</p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제6조 (면책조항)</h3>
+                    <p>
+                        회사는 천재지변, 전쟁, 기타 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는
+                        경우에는 서비스 제공에 관한 책임이 면제됩니다.
+                    </p>
+                </section>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="document.getElementById('popup-terms').classList.add('hidden')"
+                    class="flex-1 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-2xl hover:bg-gray-50 transition-all">취소</button>
+                <button onclick="document.getElementById('popup-terms').classList.add('hidden')"
+                    class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Popup -->
+    <div id="popup-privacy"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-6 max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl">
+            <div class="flex items-center justify-center mb-4">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <i data-lucide="lock" class="text-white w-8 h-8"></i>
+                </div>
+            </div>
+            <h2
+                class="text-xl text-center mb-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                개인정보 처리방침</h2>
+            <p class="text-center text-gray-500 text-sm mb-4">개인정보 처리방침을 확인하시려면 아래 내용을 읽어주세요.</p>
+            <div class="flex-1 overflow-y-auto space-y-4 text-sm text-gray-700 mb-6 p-2">
+                <section>
+                    <h3 class="mb-2 text-blue-600">제1조 (개인정보의 수집 및 이용 목적)</h3>
+                    <p>회사는 다음의 목적을 위하여 개인정보를 처리합니다:</p>
+                    <ul class="list-disc ml-6 mt-2 space-y-1">
+                        <li>회원가입 및 관리</li>
+                        <li>서비스 제공 및 맞춤형 추천</li>
+                        <li>서비스 개선 및 통계 분석</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제2조 (수집하는 개인정보의 항목)</h3>
+                    <p>회사는 다음의 개인정보 항목을 수집합니다:</p>
+                    <ul class="list-disc ml-6 mt-2 space-y-1">
+                        <li>필수항목: 이메일, 비밀번호</li>
+                        <li>선택항목: 성별, 생년월일, MBTI, 선호 스타일</li>
+                        <li>자동 수집: IP주소, 쿠키, 서비스 이용 기록</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제3조 (개인정보의 보유 및 이용기간)</h3>
+                    <p>
+                        회사는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에
+                        동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.
+                    </p>
+                    <p class="mt-2">
+                        회원 탈퇴 시 즉시 파기됩니다. (단, 관련 법령에 의거하여 보존할 필요가 있는 경우 해당
+                        기간 동안 보관)
+                    </p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제4조 (개인정보의 제3자 제공)</h3>
+                    <p>
+                        회사는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 이용자의 동의가
+                        있거나 법령의 규정에 의한 경우는 예외로 합니다.
+                    </p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제5조 (개인정보의 파기)</h3>
+                    <p>
+                        회사는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는
+                        지체없이 해당 개인정보를 파기합니다.
+                    </p>
+                </section>
+                <section>
+                    <h3 class="mb-2 text-blue-600">제6조 (이용자의 권리·의무)</h3>
+                    <p>
+                        이용자는 언제든지 등록되어 있는 자신의 개인정보를 조회하거나 수정할 수 있으며, 가입해지를
+                        요청할 수 있습니다.
+                    </p>
+                </section>
+                <div class="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 mt-6">
+                    <p class="text-sm text-yellow-800">
+                        ⚠️ 주의: MOOD ON은 PII(개인식별정보) 수집을 최소화합니다. 주민등록번호, 전화번호,
+                        정확한 주소 등 민감한 정보를 입력하지 마세요.
+                    </p>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="document.getElementById('popup-privacy').classList.add('hidden')"
+                    class="flex-1 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-2xl hover:bg-gray-50 transition-all">취소</button>
+                <button onclick="document.getElementById('popup-privacy').classList.add('hidden')"
+                    class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code Sent Popup -->
+    <div id="popup-code-sent"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div class="flex items-center justify-center mb-4">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <i data-lucide="mail" class="text-white w-8 h-8"></i>
+                </div>
+            </div>
+            <h2
+                class="text-xl text-center mb-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                인증 코드 발송 완료</h2>
+            <p class="text-center text-gray-600 text-sm mb-4">이메일로 인증번호가 발송되었습니다.</p>
+            <p class="text-center text-sm text-gray-600 mb-6">이메일을 확인해 주세요.</p>
+            <button onclick="document.getElementById('popup-code-sent').classList.add('hidden')"
+                class="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">확인</button>
+        </div>
+    </div>
+
+    <!-- Complete Popup -->
+    <div id="popup-complete"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div class="flex items-center justify-center mb-4">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <i data-lucide="check" class="text-white w-8 h-8"></i>
+                </div>
+            </div>
+            <h2
+                class="text-xl text-center mb-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                회원가입 완료</h2>
+            <p class="text-center text-gray-600 text-sm mb-6">MOOD ON 회원가입이 완료되었습니다!<br>로그인하여 서비스를 이용해보세요.</p>
+            <button onclick="window.location.href='/login/'"
+                class="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">로그인하러
+                가기</button>
+        </div>
+    </div>
+
+    <!-- Resend Error Popup -->
+    <div id="popup-resend-error"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl">
+            <div class="flex items-center justify-center mb-4">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                    <i data-lucide="clock" class="text-white w-8 h-8"></i>
+                </div>
+            </div>
+            <h2
+                class="text-xl text-center mb-2 bg-gradient-to-r from-yellow-600 to-orange-400 bg-clip-text text-transparent">
+                재발송 대기 중</h2>
+            <p class="text-center text-gray-600 text-sm mb-6">인증번호 재전송은 <span id="resend-cooldown-display"
+                    class="text-orange-600"></span>초 후에 가능합니다.</p>
+            <button onclick="document.getElementById('popup-resend-error').classList.add('hidden')"
+                class="w-full py-3 bg-gradient-to-r from-yellow-500 to-orange-400 text-white rounded-2xl hover:from-yellow-600 hover:to-orange-500 transition-all shadow-lg">확인</button>
+        </div>
+    </div>
+
+    <script src="../../static/js/signup.js"></script>
+</body>
+
+</html>

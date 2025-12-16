@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레퍼런스 보드 - MOOD ON</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+</head>
+
+<body class="min-h-screen bg-white overflow-y-auto">
+    <!-- Header -->
+    <div
+        class="border-b border-blue-100 px-5 py-3.5 flex items-center justify-between bg-white/80 backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center gap-3">
+            <button onclick="window.location.href='/chat/'"
+                class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+                <div
+                    class="w-9 h-9 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center shadow-md">
+                    <i data-lucide="lamp" class="text-white w-[18px] h-[18px]"></i>
+                </div>
+                <span
+                    class="text-[20px] font-medium leading-none bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent select-none">
+                    MOOD ON
+                </span>
+            </button>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center gap-2" id="header-nav">
+            <!-- Injected by JS -->
+        </div>
+    </div>
+
+    <main class="pt-26 pb-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Top Section -->
+            <div class="flex gap-8 mb-6">
+                <!-- Left: Style Tags -->
+                <div class="flex-shrink-0">
+                    <div id="style-tags" class="grid grid-cols-3 gap-3">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Right: Title and Description -->
+                <div class="flex-1">
+                    <h1 class="text-4xl mb-4">Reference Board</h1>
+                    <p class="text-gray-600 mb-2">
+                        원하는 무드 이미지가 없다면, 이제 손쉽게 MOOD ON의 레퍼런스 보드에서 찾아보세요.
+                    </p>
+                    <p class="text-gray-600 mb-2">
+                        빈티지부터 미니멀까지, 12개의 인테리어 카테고리로 분류된 이미지 레퍼런스를 찾아 저장하고, 당신만의 감성 취향을 찾아보는 건 어떨까요?
+                    </p>
+                    <p class="text-gray-600 mb-2">
+                        좌측에 있는 무드 태그를 클릭해서 원하는 감성 이미지를 찾아보세요. 마음에 들었다면 다운로드 버튼을 눌러서 이미지를 저장해볼 수 있습니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Preference Survey Banner -->
+            <div
+                class="relative h-20 rounded-3xl overflow-hidden mb-8 bg-gradient-to-r from-pink-100 to-purple-100 flex items-center justify-between px-8">
+                <div class="text-xl">선호도가 바뀌셨나요? 언제든 당신의 선호도를 업데이트해주세요!</div>
+                <button onclick="window.location.href='/favorites/preference/'"
+                    class="px-6 py-2.5 bg-white rounded-full hover:bg-gray-50 transition-colors border border-gray-200">
+                    선호도 업데이트 &gt;
+                </button>
+            </div>
+
+            <!-- Preference Message -->
+            <div id="preference-message" class="mb-6 hidden">
+                <p class="text-xl text-gray-700">
+                    <span id="user-name-display">회원</span>님이 선호하는 인테리어 무드 이미지입니다
+                </p>
+            </div>
+
+            <!-- Image Grid -->
+            <div id="image-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Injected by JS -->
+            </div>
+
+            <div id="empty-message" class="hidden text-center py-16 text-gray-500">
+                스타일을 선택하면 해당 이미지가 표시됩니다.
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'js/image_data.js' %}"></script>
+    <script src="{% static 'js/reference_board.js' %}"></script>
+</body>
+
+</html>

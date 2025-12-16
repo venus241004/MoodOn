@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>채팅 - MOOD ON</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50 overflow-hidden">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar"
+            class="w-72 bg-white/80 backdrop-blur-sm border-r border-blue-100 flex flex-col shadow-lg transition-all duration-300">
+            <!-- New Chat Button -->
+            <div class="p-3.5 border-b border-blue-100 bg-gradient-to-r from-blue-100 to-yellow-100 flex-shrink-0">
+                <button id="btn-new-chat"
+                    class="w-full py-3 px-3.5 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm flex items-center justify-center gap-2">
+                    ✨ 새 채팅
+                </button>
+            </div>
+
+            <!-- Sidebar Content (Logged Out) -->
+            <div id="sidebar-logged-out" class="hidden flex-1 overflow-y-auto">
+                <div class="p-7 text-center">
+                    <div
+                        class="w-18 h-18 bg-gradient-to-br from-blue-300 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-3.5 w-[72px] h-[72px]">
+                        <span class="text-2xl">🔒</span>
+                    </div>
+                    <p class="text-gray-600 mb-3.5 text-sm">
+                        로그인 후<br />이용 가능합니다
+                    </p>
+                    <button onclick="window.location.href='/login/'"
+                        class="px-5 py-2 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-full hover:from-blue-600 hover:to-blue-500 transition-all shadow-md text-xs">
+                        로그인
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Content (Logged In) -->
+            <div id="sidebar-logged-in" class="hidden flex-1 flex flex-col min-h-0">
+                <!-- Chat History -->
+                <div id="history-section"
+                    class="border-b border-blue-100 bg-gradient-to-br from-blue-50 to-sky-50 flex flex-col flex-shrink-0 transition-all duration-300">
+                    <button id="btn-toggle-history"
+                        class="w-full px-3.5 py-3 flex items-center justify-between hover:bg-blue-100/50 transition-colors flex-shrink-0">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">채팅 히스토리</span>
+                            <span id="history-count"
+                                class="text-xs bg-blue-200 text-blue-700 px-2 py-0.5 rounded-full">0</span>
+                        </div>
+                        <i id="icon-history-toggle" data-lucide="chevron-down" class="w-[17px] h-[17px]"></i>
+                    </button>
+                    <div id="history-list" class="hidden p-2.5 overflow-y-auto flex-1 min-h-0">
+                        <!-- History Items -->
+                    </div>
+                </div>
+
+                <!-- Favorite Products -->
+                <div id="favorites-section"
+                    class="border-b border-blue-100 bg-gradient-to-br from-pink-50 to-rose-50 flex flex-col flex-shrink-0 transition-all duration-300">
+                    <button id="btn-toggle-favorites"
+                        class="w-full px-3.5 py-3 flex items-center justify-between hover:bg-pink-100/50 transition-colors flex-shrink-0">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="heart" class="text-pink-500 fill-pink-500 w-[17px] h-[17px]"></i>
+                            <h3 class="text-sm">관심 상품</h3>
+                            <span id="favorites-count"
+                                class="text-xs bg-pink-200 text-pink-700 px-2 py-0.5 rounded-full">0</span>
+                        </div>
+                        <i id="icon-favorites-toggle" data-lucide="chevron-down" class="w-[17px] h-[17px]"></i>
+                    </button>
+                    <div id="favorites-list" class="hidden p-2.5 space-y-2 overflow-y-auto flex-1 min-h-0">
+                        <!-- Favorite Items -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Session Context Card -->
+            <div id="session-context" class="hidden p-3.5 border-t border-blue-100 flex-shrink-0">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="zap" class="text-blue-500 w-4 h-4"></i>
+                            <h3 class="text-sm text-gray-800">세션 상태</h3>
+                        </div>
+                        <button id="btn-reset-context"
+                            class="px-3 py-1.5 text-xs text-blue-600 border-2 border-blue-400 rounded-full hover:bg-blue-50 transition-all"
+                            title="세션 상태 초기화">
+                            초기화
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="tag" class="text-gray-400 w-[13px] h-[13px]"></i>
+                        <span class="text-xs text-gray-500">카테고리:</span>
+                        <span id="ctx-category" class="text-xs text-gray-800">(미설정)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="palette" class="text-gray-400 w-[13px] h-[13px]"></i>
+                        <span class="text-xs text-gray-500">무드:</span>
+                        <span id="ctx-mood" class="text-xs text-gray-800">(미설정)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="dollar-sign" class="text-gray-400 w-[13px] h-[13px]"></i>
+                        <span class="text-xs text-gray-500">예산:</span>
+                        <span id="ctx-budget" class="text-xs text-gray-800">(미설정)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="home" class="text-gray-400 w-[13px] h-[13px]"></i>
+                        <span class="text-xs text-gray-500">공간:</span>
+                        <span id="ctx-space" class="text-xs text-gray-800">(미설정)</span>
+                    </div>
+
+                    <div class="mt-3 pt-2 border-t border-blue-100">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="zap" class="text-blue-500 w-[13px] h-[13px]"></i>
+                            <span class="text-xs text-gray-500">현재 모드:</span>
+                            <span id="ctx-mode"
+                                class="text-xs px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white">SMALL
+                                TALK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="flex-1 flex flex-col h-full relative">
+            <!-- Header -->
+            <div
+                class="border-b border-blue-100 px-5 py-3.5 flex items-center justify-between bg-white/80 backdrop-blur-sm shadow-sm z-10">
+                <div class="flex items-center gap-3">
+                    <button id="btn-toggle-sidebar" class="p-2 hover:bg-blue-100 rounded-lg transition-colors">
+                        <i data-lucide="menu" class="text-blue-600 w-[21px] h-[21px]"></i>
+                    </button>
+                    <button onclick="window.location.href='/chat/'"
+                        class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+                        <div
+                            class="w-9 h-9 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center shadow-md">
+                            <i data-lucide="lamp" class="text-white w-[18px] h-[18px]"></i>
+                        </div>
+                        <span
+                            class="text-[20px] font-medium leading-none bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent select-none">
+                            MOOD ON
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex items-center gap-2" id="header-nav">
+                    <!-- Injected by JS based on login status -->
+                </div>
+            </div>
+
+            <!-- Chat Content -->
+            <main class="flex-1 flex flex-col overflow-hidden relative">
+                <!-- Empty State -->
+                <div id="empty-state" class="hidden flex-1 overflow-y-auto">
+                    <div class="min-h-full flex flex-col items-center justify-center p-5">
+                        <div class="max-w-2xl w-full text-center">
+                            <div class="mb-5">
+                                <p class="text-gray-500 mb-2.5 text-sm">안녕하세요 👋</p>
+                                <h2 class="text-3xl mb-3.5">
+                                    인테리어 고민,<br />
+                                    <span
+                                        class="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">MOOD
+                                        ON</span>
+                                    이 도와드릴게요!
+                                </h2>
+                            </div>
+                            <div class="mb-7 flex justify-center">
+                                <div class="w-36 h-36 rounded-full bg-gradient-to-br from-white/50 via-blue-200/40 to-blue-400/30 backdrop-blur-xl shadow-2xl border-2 border-white/40 transform hover:scale-105 transition-transform"
+                                    style="box-shadow: inset -13px -13px 26px rgba(255, 255, 255, 0.6), inset 13px 13px 26px rgba(59, 130, 246, 0.15), 0 30px 60px rgba(59, 130, 246, 0.4)">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-7" id="example-questions">
+                                <!-- Questions injected by JS -->
+                            </div>
+                            <div
+                                class="bg-blue-50/50 backdrop-blur border border-blue-200 rounded-xl p-3.5 inline-flex items-start gap-2.5 max-w-md mx-auto">
+                                <i data-lucide="alert-circle"
+                                    class="text-blue-500 mt-0.5 flex-shrink-0 w-[17px] h-[17px]"></i>
+                                <p class="text-xs text-gray-600 text-left">
+                                    MOOD ON AI는 실수할 수 있어요. 개인정보는 입력하지 마세요.
+                                    <button id="btn-show-guidelines-link"
+                                        class="text-xs text-blue-600 underline hover:text-blue-700">주의사항</button>
+                                </p>
+                            </div>
+                            <div id="welcome-auth-buttons" class="hidden flex gap-4 justify-center mt-6">
+                                <button onclick="window.location.href='/signup/'"
+                                    class="px-10 py-3.5 bg-gradient-to-r from-blue-100 to-yellow-100 text-blue-700 border-2 border-blue-400 rounded-full hover:shadow-xl transition-all transform hover:scale-105 shadow-lg">회원가입</button>
+                                <button onclick="window.location.href='/login/'"
+                                    class="px-10 py-3.5 bg-white text-blue-600 border-2 border-blue-400 rounded-full hover:bg-blue-50 transition-all transform hover:scale-105 shadow-md">로그인</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages List -->
+                <div id="messages-container" class="flex-1 overflow-y-auto px-5 pt-5 pb-28 flex justify-center hidden">
+                    <div class="w-full max-w-4xl space-y-5" id="messages-list">
+                        <!-- Messages injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="px-5 py-6 flex justify-center bg-white/50 backdrop-blur-sm z-10">
+                    <div class="w-full max-w-4xl flex flex-col gap-2.5">
+                        <!-- Image Preview -->
+                        <div id="image-preview-container" class="hidden flex items-start gap-3 ml-1">
+                            <div class="relative inline-block">
+                                <img id="image-preview" src="" alt="Preview"
+                                    class="w-32 h-24 object-cover rounded-2xl shadow-md border-2 border-gray-100">
+                                <button id="btn-remove-image"
+                                    class="absolute -top-2.5 -right-2.5 p-1.5 bg-red-500 text-white rounded-full hover:bg-red-600 shadow-lg transition-all">
+                                    <i data-lucide="x" class="w-[14px] h-[14px]"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2.5 items-end">
+                            <input type="file" id="file-input" accept="image/jpeg,image/png" class="hidden">
+                            <div class="flex items-center gap-2">
+                                <select id="image-type-select"
+                                    class="text-xs border rounded-lg px-2 py-2 text-gray-600 bg-white hidden"
+                                    title="이미지 유형 선택">
+                                    <option value="current">방 사진</option>
+                                    <option value="reference">레퍼런스</option>
+                                </select>
+                                <button id="btn-upload-image"
+                                    class="p-3.5 rounded-xl transition-all flex-shrink-0 bg-gray-100 text-gray-400 cursor-not-allowed"
+                                    disabled title="이미지 첨부 (JPG, PNG, 최대 10MB)">
+                                    <i data-lucide="image" class="w-[22px] h-[22px]"></i>
+                                </button>
+                            </div>
+
+                            <div class="flex-1 relative">
+                                <div class="flex items-end">
+                                    <textarea id="chat-input" rows="1" placeholder="로그인 후 사용 가능합니다" disabled
+                                        class="w-full px-5 py-3 pr-18 border-2 border-blue-200 rounded-2xl focus:outline-none focus:border-blue-400 resize-none shadow-sm bg-white/90 text-sm overflow-y-auto align-bottom"
+                                        style="min-height: 44px; max-height: 200px;"></textarea>
+                                </div>
+                                <span id="char-count"
+                                    class="absolute right-5 bottom-3 text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full pointer-events-none">0/200</span>
+                            </div>
+
+                            <button id="btn-send" disabled
+                                class="p-3.5 rounded-xl transition-all shadow-md flex-shrink-0 bg-gray-300 text-gray-500 cursor-not-allowed">
+                                <i data-lucide="send" class="w-[22px] h-[22px]"></i>
+                            </button>
+                        </div>
+
+                        <!-- Warning Badge -->
+                        <div id="input-warning" class="hidden text-center">
+                            <div
+                                class="inline-flex items-center gap-2 bg-blue-50/90 backdrop-blur-sm rounded-full px-3.5 py-2 shadow-sm">
+                                <i data-lucide="alert-circle" class="text-blue-500 w-[13px] h-[13px]"></i>
+                                <p class="text-xs text-gray-600">
+                                    개인정보 입력 주의 ·
+                                    <button id="btn-show-guidelines-badge"
+                                        class="text-xs text-blue-600 underline hover:text-blue-700">주의사항</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- Popups -->
+    <!-- Login Required Popup -->
+    <div id="popup-login-required"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div class="text-center mb-6">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-3xl">🔐</span>
+                </div>
+                <h2 class="text-2xl mb-2 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                    로그인이
+                    필요합니다</h2>
+                <p class="text-gray-600">챗봇을 사용하시려면 먼저 로그인해주세요.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="document.getElementById('popup-login-required').classList.add('hidden')"
+                    class="flex-1 py-3 border-2 border-gray-300 rounded-2xl hover:bg-gray-50 transition-all">취소</button>
+                <button onclick="window.location.href='/login/'"
+                    class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">로그인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirm Popup -->
+    <div id="popup-delete-confirm"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div class="text-center mb-6">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-300 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="alert-circle" class="text-white w-8 h-8"></i>
+                </div>
+                <h2 class="text-2xl mb-2 text-gray-800">채팅 히스토리 삭제</h2>
+                <p class="text-gray-600">이 채팅을 삭제하시겠습니까?<br>삭제된 내용은 복구할 수 없습니다.</p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="document.getElementById('popup-delete-confirm').classList.add('hidden')"
+                    class="flex-1 py-3 border-2 border-gray-300 rounded-2xl hover:bg-gray-50 transition-all">취소</button>
+                <button id="btn-confirm-delete"
+                    class="flex-1 py-3 bg-gradient-to-r from-red-500 to-red-400 text-white rounded-2xl hover:from-red-600 hover:to-red-500 transition-all shadow-lg">삭제</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guidelines Popup -->
+    <div id="popup-guidelines"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto shadow-2xl">
+            <div class="flex items-start justify-between mb-6">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center">
+                            <i data-lucide="alert-circle" class="text-white w-6 h-6"></i>
+                        </div>
+                        <h2 class="text-2xl bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                            MOOD ON AI 챗봇 이용 주의사항</h2>
+                    </div>
+                </div>
+                <button onclick="document.getElementById('popup-guidelines').classList.add('hidden')"
+                    class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Guidelines Content -->
+                <section>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-xl shadow-sm">
+                        <h2 class="text-lg font-bold mb-3 text-blue-800 flex items-center gap-2">
+                            <span>💡</span> 서비스 목적 및 한계
+                        </h2>
+                        <div class="space-y-2 text-sm text-blue-900/80">
+                            <p>• MOOD ON AI 챗봇은 인테리어 상품 추천 및 정보 제공을 위한 보조 도구입니다.</p>
+                            <p>• AI가 제공하는 추천은 참고용이며, 최종 구매 결정은 사용자의 책임입니다.</p>
+                            <p>• 실시간 재고, 가격, 배송 정보는 실제와 다를 수 있으니 구매 전 반드시 확인하세요.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-xl shadow-sm">
+                        <h2 class="text-lg font-bold mb-3 text-red-800 flex items-center gap-2">
+                            <span>🔒</span> 개인정보 보호
+                        </h2>
+                        <div class="space-y-2 text-sm text-red-900/80">
+                            <p>• 주민등록번호, 계좌번호, 비밀번호 등 민감한 개인정보를 입력하지 마세요.</p>
+                            <p>• 정확한 주소나 전화번호 등의 개인 식별 정보 입력을 자제해주세요.</p>
+                            <p>• 대화 내용은 서비스 개선을 위해 저장될 수 있습니다.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm">
+                        <h2 class="text-lg font-bold mb-3 text-amber-800 flex items-center gap-2">
+                            <span>⚠️</span> 사용 제한사항
+                        </h2>
+                        <div class="space-y-2 text-sm text-amber-900/80">
+                            <p>• 질문은 한국어로만 입력 가능합니다. <span
+                                    class="bg-amber-200 text-amber-800 text-[10px] px-1.5 py-0.5 rounded ml-1 font-bold">KR</span>
+                            </p>
+                            <p>• 질문은 최대 200자 이내로 작성해주세요. <span>✍️</span></p>
+                            <p>• 이미지는 1장만, 최대 10MB (JPG, PNG) <span>📷</span></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-5 rounded-r-xl shadow-sm">
+                        <h2 class="text-lg font-bold mb-3 text-purple-800 flex items-center gap-2">
+                            <span>🚫</span> 금지된 행위
+                        </h2>
+                        <div class="space-y-2 text-sm text-purple-900/80">
+                            <p>• 불법적이거나 유해한 콘텐츠 요청</p>
+                            <p>• 타인의 권리를 침해하는 내용</p>
+                            <p>• 욕설, 비방, 차별적 표현 사용</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="bg-yellow-50 p-6 rounded-2xl mt-8 text-center text-sm text-gray-700 font-medium">
+                    <p>
+                        안전하고 즐거운 서비스 이용을 위해<br />
+                        위 내용을 꼭 확인해주세요!
+                    </p>
+                </div>
+            </div>
+            <button onclick="document.getElementById('popup-guidelines').classList.add('hidden')"
+                class="w-full mt-4 py-3 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg font-medium">확인했어요!</button>
+        </div>
+    </div>
+
+    <!-- Alert Popup -->
+    <div id="popup-alert"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div class="text-center mb-6">
+                <div
+                    class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i data-lucide="alert-circle" class="text-white w-10 h-10"></i>
+                </div>
+                <h2 class="text-2xl mb-3 text-gray-800">알림</h2>
+                <p id="alert-message" class="text-gray-600"></p>
+            </div>
+            <button onclick="document.getElementById('popup-alert').classList.add('hidden')"
+                class="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">확인</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="{% static 'js/chat.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+# favorites/__init__.py

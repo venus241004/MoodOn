@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지 - MOOD ON</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../../static/js/common.js"></script>
+</head>
+
+<body class="h-screen bg-gradient-to-br from-blue-50 via-white to-yellow-50 overflow-hidden">
+    <!-- Header -->
+    <div
+        class="border-b border-blue-100 px-5 py-3.5 flex items-center justify-between bg-white/80 backdrop-blur-sm shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="flex items-center gap-3">
+            <button onclick="window.location.href='/chat/'"
+                class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+                <div
+                    class="w-9 h-9 bg-gradient-to-br from-blue-400 to-blue-300 rounded-full flex items-center justify-center shadow-md">
+                    <i data-lucide="lamp" class="text-white w-[18px] h-[18px]"></i>
+                </div>
+                <span
+                    class="text-[20px] font-medium leading-none bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent select-none">
+                    MOOD ON
+                </span>
+            </button>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center gap-2" id="header-nav">
+            <!-- Injected by JS -->
+        </div>
+    </div>
+
+    <main class="pt-24 pb-2 h-full overflow-hidden">
+        <div class="max-w-[1800px] mx-auto px-4 scale-[0.90] origin-top h-full">
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-[320px_1fr] gap-4 h-full overflow-hidden">
+                <!-- Left Column -->
+                <div class="space-y-4 h-full overflow-y-auto">
+                    <!-- Profile Header -->
+                    <div class="bg-white rounded-3xl p-6 shadow-md border-2 border-blue-100">
+                        <div class="text-center mb-5">
+                            <div class="inline-block relative mb-4">
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 rounded-full flex items-center justify-center shadow-md">
+                                    <span class="text-3xl text-white">M</span>
+                                </div>
+                                <div
+                                    class="absolute -bottom-1 -right-1 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center shadow-md">
+                                    <i data-lucide="sparkles" class="text-white w-4 h-4"></i>
+                                </div>
+                            </div>
+                            <h1 id="profile-name"
+                                class="text-2xl mb-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                mountainstar03
+                            </h1>
+                            <p id="profile-email" class="text-sm text-gray-600">mountainstar03@gmail.com</p>
+                        </div>
+
+                        <!-- Account Management -->
+                        <div class="pt-5 border-t border-gray-100">
+                            <h2 class="text-sm mb-3 flex items-center gap-2 text-gray-700">
+                                <i data-lucide="user" class="text-blue-500 w-[18px] h-[18px]"></i>
+                                <span>계정 관리</span>
+                            </h2>
+                            <div class="flex gap-3">
+                                <button onclick="window.location.href='/password/change/'"
+                                    class="flex-1 text-left py-3 px-4 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl transition-all group flex items-center justify-between text-sm">
+                                    <span class="text-gray-800">비밀번호 수정</span>
+                                    <span class="text-blue-500 group-hover:translate-x-1 transition-transform">→</span>
+                                </button>
+                                <button id="btn-delete-account"
+                                    class="flex-1 text-left py-3 px-4 bg-gradient-to-r from-red-50 to-pink-50 hover:from-red-100 hover:to-pink-100 rounded-2xl transition-all group flex items-center justify-between text-sm">
+                                    <span class="text-red-700">회원 탈퇴</span>
+                                    <span class="text-red-500 group-hover:translate-x-1 transition-transform">→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- My Mood Section -->
+                    <div class="bg-white rounded-2xl p-3 shadow-md border-2 border-purple-100 flex-1 flex flex-col">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div
+                                class="w-6 h-6 bg-gradient-to-br from-purple-400 to-pink-400 rounded-lg flex items-center justify-center shadow-sm">
+                                <i data-lucide="palette" class="text-white w-[13px] h-[13px]"></i>
+                            </div>
+                            <h2
+                                class="text-m bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-medium">
+                                나의 MOOD
+                            </h2>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 flex-1">
+                            <!-- Gender -->
+                            <div class="group flex flex-col">
+                                <div class="relative flex-1 mb-1.5 min-h-[100px]">
+                                    <div
+                                        class="w-full h-full bg-gradient-to-br from-purple-200 via-purple-300 to-purple-400 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all">
+                                        <div id="mood-gender-icon" class="text-4xl">👩</div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full shadow-md flex items-center justify-center">
+                                        <i data-lucide="user" class="text-purple-500 w-[10px] h-[10px]"></i>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-[10px] text-gray-500 mb-0.5">성별</p>
+                                    <p id="mood-gender" class="text-xs font-semibold text-gray-800">여성</p>
+                                </div>
+                            </div>
+
+                            <!-- Birthdate -->
+                            <div class="group flex flex-col">
+                                <div class="relative flex-1 mb-1.5 min-h-[100px]">
+                                    <div
+                                        class="w-full h-full bg-gradient-to-br from-pink-200 via-pink-300 to-rose-400 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all">
+                                        <div class="text-4xl">🎂</div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full shadow-md flex items-center justify-center">
+                                        <i data-lucide="calendar" class="text-pink-500 w-[10px] h-[10px]"></i>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-[10px] text-gray-500 mb-0.5">생년월일</p>
+                                    <p id="mood-birthdate" class="text-[10px] font-semibold text-gray-800">2000.06.17
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- MBTI -->
+                            <div class="group flex flex-col">
+                                <div class="relative flex-1 mb-1.5 min-h-[100px]">
+                                    <div
+                                        class="w-full h-full bg-gradient-to-br from-green-200 via-emerald-300 to-teal-400 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all">
+                                        <div id="mood-mbti" class="text-3xl text-white drop-shadow-lg font-bold">ENTJ
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full shadow-md flex items-center justify-center">
+                                        <i data-lucide="sparkles" class="text-green-500 w-[10px] h-[10px]"></i>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-[10px] text-gray-500 mb-0.5">MBTI</p>
+                                    <p id="mood-mbti-text" class="text-xs font-semibold text-gray-800">ENTJ</p>
+                                </div>
+                            </div>
+
+                            <!-- Style -->
+                            <div class="group flex flex-col">
+                                <div class="relative flex-1 mb-1.5 min-h-[100px]">
+                                    <div
+                                        class="w-full h-full bg-gradient-to-br from-blue-200 via-cyan-300 to-sky-400 rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all">
+                                        <div class="text-4xl">🏠</div>
+                                    </div>
+                                    <div
+                                        class="absolute top-2 right-2 w-5 h-5 bg-white rounded-full shadow-md flex items-center justify-center">
+                                        <i data-lucide="palette" class="text-blue-500 w-[10px] h-[10px]"></i>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-[10px] text-gray-500 mb-0.5">스타일</p>
+                                    <p id="mood-style" class="text-xs font-semibold text-gray-800">북유럽</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="flex flex-col h-full overflow-hidden">
+                    <!-- Banner -->
+                    <div class="mb-4 flex-shrink-0">
+                        <div
+                            class="bg-gradient-to-r from-purple-100 via-pink-100 to-rose-100 rounded-3xl p-5 shadow-md border-2 border-purple-200 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-200 to-orange-200 rounded-full -mr-16 -mt-16 opacity-50">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-200 to-purple-200 rounded-full -ml-12 -mb-12 opacity-50">
+                            </div>
+                            <div class="relative flex items-center justify-between flex-wrap gap-4">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center shadow-sm">
+                                        <i data-lucide="sparkles" class="text-white w-[22px] h-[22px]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg mb-0.5 text-gray-800">취향이 바뀌셨나요?</h3>
+                                        <p class="text-sm text-gray-600">언제든 선호도를 업데이트할 수 있어요!</p>
+                                    </div>
+                                </div>
+                                <button onclick="window.location.href='/favorites/preference/'"
+                                    class="px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 text-white rounded-2xl hover:from-purple-600 hover:via-pink-600 hover:to-rose-600 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1 flex items-center gap-2">
+                                    <span>선호도 업데이트</span>
+                                    <span>✨</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist -->
+                    <div class="flex-1 flex flex-col min-h-0">
+                        <div class="flex items-center justify-between mb-6 flex-shrink-0">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-pink-400 to-rose-400 rounded-2xl flex items-center justify-center shadow-sm">
+                                    <i data-lucide="heart" class="text-white fill-white w-6 h-6"></i>
+                                </div>
+                                <h2 class="text-2xl text-gray-800">관심 상품</h2>
+                                <span id="favorites-count-badge"
+                                    class="px-4 py-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-full text-sm shadow-sm">0개</span>
+                            </div>
+
+                            <div class="relative" id="sort-container">
+                                <button id="btn-sort"
+                                    class="px-6 py-3 bg-white border-2 border-blue-200 rounded-2xl hover:border-blue-400 transition-all shadow-sm flex items-center gap-2">
+                                    <i data-lucide="arrow-up-down" class="text-blue-600 w-[18px] h-[18px]"></i>
+                                    <span id="sort-label" class="text-gray-700">등록순</span>
+                                </button>
+                                <div id="sort-menu"
+                                    class="hidden absolute right-0 top-full mt-2 bg-white rounded-2xl shadow-lg border-2 border-blue-100 overflow-hidden z-10 min-w-[160px]">
+                                    <button onclick="setSort('recent')"
+                                        class="w-full text-left px-5 py-3 hover:bg-blue-50 transition-colors text-gray-700">등록순</button>
+                                    <button onclick="setSort('price-low')"
+                                        class="w-full text-left px-5 py-3 hover:bg-blue-50 transition-colors text-gray-700">가격
+                                        낮은순</button>
+                                    <button onclick="setSort('price-high')"
+                                        class="w-full text-left px-5 py-3 hover:bg-blue-50 transition-colors text-gray-700">가격
+                                        높은순</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex-1 bg-white rounded-3xl shadow-xl border-2 border-pink-100 overflow-hidden flex flex-col min-h-0">
+                            <div id="favorites-grid" class="h-full overflow-y-auto p-6">
+                                <!-- Injected by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Delete Account Popup -->
+    <div id="popup-delete-account"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl">
+            <div class="text-center mb-6">
+                <div
+                    class="w-20 h-20 bg-gradient-to-br from-red-400 to-rose-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <i data-lucide="alert-circle" class="text-white w-10 h-10"></i>
+                </div>
+                <h2 class="text-2xl mb-3 text-gray-800">정말 탈퇴하시겠어요?</h2>
+                <p class="text-gray-600 mb-6">회원 탈퇴 시 모든 데이터가 삭제되며<br />복구할 수 없습니다.</p>
+            </div>
+            <div class="bg-red-50 rounded-2xl p-5 mb-6 border-2 border-red-100">
+                <h3 class="text-sm mb-3 text-red-800 flex items-center gap-2">
+                    <i data-lucide="alert-circle" class="w-[18px] h-[18px]"></i>
+                    <span>삭제되는 정보</span>
+                </h3>
+                <ul class="text-sm text-gray-700 space-y-2">
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full"></div><span>계정 정보 및 프로필</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full"></div><span>취향 분석 데이터</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full"></div><span>관심 상품 목록</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-red-500 rounded-full"></div><span>채팅 히스토리</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="document.getElementById('popup-delete-account').classList.add('hidden')"
+                    class="flex-1 py-4 border-2 border-gray-300 rounded-2xl hover:bg-gray-50 transition-all text-gray-700">취소</button>
+                <button id="btn-confirm-delete-account"
+                    class="flex-1 py-4 bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-2xl hover:from-red-600 hover:to-rose-600 transition-all shadow-lg">탈퇴하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="popup-success"
+        class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl">
+            <div class="text-center mb-6">
+                <div
+                    class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <span class="text-4xl">✓</span>
+                </div>
+                <h2 class="text-2xl mb-3 text-gray-800">회원 탈퇴 완료</h2>
+                <p class="text-gray-600">회원 탈퇴가 완료되었습니다.<br />그동안 MOOD ON을 이용해주셔서 감사합니다.</p>
+            </div>
+            <button onclick="Auth.logout()"
+                class="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-400 text-white rounded-2xl hover:from-blue-600 hover:to-blue-500 transition-all shadow-lg">확인</button>
+        </div>
+    </div>
+
+    <script src="../../static/js/mypage.js"></script>
+</body>
+
+</html>

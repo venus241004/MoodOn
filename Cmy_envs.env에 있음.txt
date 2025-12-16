@@ -1,0 +1,7 @@
+"C:\my_envs\.env"에 있음
+# django_app/config/settings.py
+
+MOODON_EMAIL_HOST_USER=
+MOODON_EMAIL_HOST_PASSWORD=
+MOODON_SECRET_KEY=
+OPENAI_API_KEY=
