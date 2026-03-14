@@ -7,5 +7,3 @@
 ![Page 4](./images/4.png)
 
 ![Page 5](./images/5.png)
-
-![Page 6](./images/6.png)
